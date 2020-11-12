@@ -19,10 +19,10 @@ def get_tinkuy_coords_np():
                       region_name = os.environ['AWS_DEFAULT_REGION'])
     response = dynamodb.scan(TableName='tinkuy-coords')
     
-    points = np.empty((0,2), float)
+    points = []
     for item in response['Items']:
         point = [float(item['latitud']['S']),float(item['longitud']['S'])]
         print(point)
-        np.append(points,np.array([point]), axis=0)
+        points.append(points)
         
-    return points
+    return np.array(points)
