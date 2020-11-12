@@ -12,9 +12,9 @@ for point in points:
   point_dict['S'] = str(point)
   points_list.append(point_dict)
 
-medoid_list['tstamp'] = {'S':time.time() }
-medoid_list['points'] = {'L':points_list  }
-medoid_list['cluster-id'] = {'S':1}
+medoid_list['tstamp'] = {'N':time.time() }
+medoid_list['points'] = {'L':points_list }
+medoid_list['cluster-id'] = {'S':'1'}
 
 print(medoid_list)
 
