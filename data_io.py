@@ -40,7 +40,7 @@ def get_tinkuy_coords_list():
     points = []
     i = 1
     for item in response['Items']:
-        #print(item)
+        print(item)
         point = [float(item['latitud']['S']),float(item['longitud']['S'])]
         #print(point)
         i += 1
