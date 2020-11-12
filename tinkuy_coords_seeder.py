@@ -4,7 +4,7 @@ import random
 import os
 from shapely.geometry import Point
 
-def generate_random(minx,miny):
+def generate_random(minx ,miny):
     _point = []
     maxx = minx - 0.01
     maxy = miny - 0.1
@@ -12,7 +12,7 @@ def generate_random(minx,miny):
     pnt = Point(random.uniform(minx, maxx), random.uniform(miny, maxy))
     return pnt
 
-def load_locations(n, minx ,miny , dynamodb=None):
+def load_locations(n, minx, miny, dynamodb=None):
 
     if not dynamodb:
         dynamodb = boto3.resource('dynamodb',\
@@ -25,7 +25,7 @@ def load_locations(n, minx ,miny , dynamodb=None):
     table = dynamodb.Table('tinkuy-coords')
 
     for i in range(n):
-        _point = generate_random()
+        _point = generate_random(minx, miny)
         location_dict = {}
         location_dict['usr_tlg']  = "#TEST_"   + str(i)
         location_dict['tstamp']   = 1605151084 + random.randint(0,86400)
