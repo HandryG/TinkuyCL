@@ -24,7 +24,7 @@ def get_tinkuy_coords_np():
     for item in response['Items']:
         #print(item)
         point = [float(item['latitud']['S']),float(item['longitud']['S'])]
-        print(i,end=' ')
+        print(point)
         i += 1
         points.append(points)
         
