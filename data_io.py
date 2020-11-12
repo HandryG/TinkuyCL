@@ -20,9 +20,11 @@ def get_tinkuy_coords_np():
     response = dynamodb.scan(TableName='tinkuy-coords')
     
     points = []
+    i = 1
     for item in response['Items']:
         point = [float(item['latitud']['S']),float(item['longitud']['S'])]
-        print(point)
+        print(i,end=' ')
+        i += 1
         points.append(points)
         
     return np.array(points)
