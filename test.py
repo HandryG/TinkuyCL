@@ -1,3 +1,3 @@
 from the_clustering import *
 
-do_clustering()
+print(type(do_clustering()))
