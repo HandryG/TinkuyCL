@@ -18,6 +18,6 @@ dynamodb = boto3.resource('dynamodb',\
                       region_name = os.environ['AWS_DEFAULT_REGION'])
                   
 table = dynamodb.Table('tinkuy-clusters')
-table.delete_item(Key={'id': id})
+#table.delete_item(Key={'id': id})
 table.put_item(medoid_list)
   
