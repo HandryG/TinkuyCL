@@ -14,7 +14,7 @@ for point in points:
 
 medoid_list['tstamp'] = {'S':str(time.time()) }
 medoid_list['points'] = {'L':points_list }
-medoid_list['cluster_id'] = {'S':'0'}
+medoid_list['cluster_id'] = {'S':'activo'}
 
 print('\nItem for DynamoDB:\n',medoid_list)
 
@@ -29,7 +29,7 @@ dynamodb_cl = boto3.client('dynamodb',\
                       region_name = os.environ['AWS_DEFAULT_REGION'])             
 try:
   table = dynamodb_rs.Table('tinkuy-clusters')
-  table.delete_item(Key={'cluster_id': {'S':'0'}})
+  #table.delete_item(Key={'cluster_id': '0'})
   dynamodb_cl.put_item(TableName='tinkuy-clusters',Item=medoid_list)
   
   print("Medoids updated in dynamo",response )
