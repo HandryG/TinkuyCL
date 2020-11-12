@@ -1,6 +1,7 @@
 import boto3
 import os
 import time
+from the_clustering import do_clustering
 
 medoid_list = {}
 medoid_list['list']=[]
