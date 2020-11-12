@@ -41,7 +41,7 @@ def do_clustering(min_medoids,max_medoids):
   print('Medoids')
   medoid_points = []
   for medoid in medoids:
-      print('>',medoid)
+      print('>',points[medoid])
       medoid_points.append(points[medoid])
   
   return medoid_points
