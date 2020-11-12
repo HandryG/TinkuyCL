@@ -38,4 +38,4 @@ def load_locations(n, dynamodb=None):
 
 if __name__ == '__main__':
 
-    load_locations(500
+    load_locations(500)
