@@ -46,19 +46,21 @@ def get_tinkuy_coords_list_by_last_minutes(m=15):
     ts_minus15 = int(ts - REFRESH_INTERVAL)
     response = table.scan(Select='ALL_ATTRIBUTES', FilterExpression=Attr('tstamp').gte(ts_minus15))
     
-    
     points = []
     i = 1
     for item in response['Items']:
+        print(item)
         try:
             point = [float(item['latitud']['S']),float(item['longitud']['S'])]
-            #print(point)
+            print(point)
             i += 1
             points.append(point)
         except:
             print("Point:", item, "ignored")
     i -= 1
     print("Number of retrieved points:",i)
+
+    return points
 
 def get_tinkuy_coords_list():
     dynamodb = boto3.client('dynamodb',\

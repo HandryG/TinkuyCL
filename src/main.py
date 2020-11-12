@@ -1,4 +1,4 @@
-from clustering import update_medoids
+from update_medoids import update_medoids
 
 def main():
     update_medoids()
