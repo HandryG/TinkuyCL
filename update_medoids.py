@@ -25,7 +25,7 @@ dynamodb = boto3.client('dynamodb',\
                   
 try:
   #dynamodb.delete_item(Key={'id': id})
-  dynamodb.put_item(TableName='tinkuy-clusters',Item=medoid_list)
+  dynamodb.update_item(TableName='tinkuy-clusters',Item=medoid_list)
   print("Medoids updated in dynamo")
 except:
   print("Medoid update failed")
