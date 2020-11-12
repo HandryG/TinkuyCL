@@ -11,8 +11,10 @@ from sklearn.metrics import silhouette_score
 import sys
 
 def do_clustering(min_medoids,max_medoids):
+  # Read data
   points = get_tinkuy_coords_list()
-  #sys.setrecursionlimit(6500)
+  
+  # Get Optimal k
   max_score = 0
   amount = 2
   for n_clusters in range(min_medoids,max_medoids):
@@ -23,9 +25,10 @@ def do_clustering(min_medoids,max_medoids):
     if(score > max_score):
         max_score = score
         amount    = n_clusters
-        
-  amount = search_instance.get_amount()
-  scores = search_instance.get_scores()
+  
+  print('optimal k:',amount)
+  
+  # Compute clusters for optimal k
   initial_centers = kmeans_plusplus_initializer(points, amount).initialize()
   kmeans_instance = kmedoids(points, range(0,amount)).process()
   clusters   = kmeans_instance.get_clusters()
@@ -33,6 +36,8 @@ def do_clustering(min_medoids,max_medoids):
   #visualizer = cluster_visualizer()
   #visualizer.append_clusters(clusters, points)
   #visualizer.show()
+  
+  # Retrieve medoid points
   medoid_points = []
   for medoid in medoids:
       medoid_points.append(points[medoid])
