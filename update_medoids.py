@@ -9,7 +9,7 @@ points = do_clustering(3,10)
 points_list = []
 for point in points:
   point_dict = {}
-  point_dict['SS'] = [str(coord) for cord in point]
+  point_dict['SS'] = [str(coord) for coord in point]
   points_list.append(point_dict)
 
 medoid_list['tstamp'] = {'S':str(time.time()) }
