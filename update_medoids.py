@@ -12,12 +12,12 @@ medoid_list['points'] = point_list
 medoid_list['id'] = 1
 print(medoid_list)
 
-dynamodb = boto3.resource('dynamodb',\
+dynamodb = boto3.client('dynamodb',\
                       aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],\
                       aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],\
                       region_name = os.environ['AWS_DEFAULT_REGION'])
                   
-table = dynamodb.Table('tinkuy-clusters')
+#table = dynamodb.Table('tinkuy-clusters')
 #table.delete_item(Key={'id': id})
-table.put_item(medoid_list)
+dynamodb.put_item(TableName='tinkuy-clusters',Item=medoid_list)
   
