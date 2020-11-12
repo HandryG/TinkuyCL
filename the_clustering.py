@@ -1,5 +1,5 @@
 from sklearn.cluster import OPTICS
-from data_io import get_tinkuy_coords_df 
+from data_io import get_tinkuy_coords_np 
 import pandas as pd
 
 def do_clustering():
