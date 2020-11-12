@@ -29,7 +29,7 @@ try:
   table = dynamodb.Table('tinkuy-clusters')
   response = table.update_item(
         Key={
-            'cluster_id': medoid_list['cluster_id']
+            'cluster_id':{'S':'0'}
         },
         UpdateExpression="set tstamp=:s, points=:p",
         ExpressionAttributeValues={
@@ -38,7 +38,7 @@ try:
         },
         ReturnValues="UPDATED_NEW"
     )
-  print("Medoids updated in dynamo")
+  print("Medoids updated in dynamo",response )
 except:
   print("Medoid update failed")
  
