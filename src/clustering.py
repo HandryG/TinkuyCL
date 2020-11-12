@@ -13,7 +13,7 @@ import sys
 
 def do_clustering(min_medoids, max_medoids):
     # Read data
-    points = get_tinkuy_coords_list()
+    points = get_tinkuy_coords_list_by_last_minutes()
 
     # Get Optimal k
     max_score = 0

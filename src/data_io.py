@@ -49,10 +49,8 @@ def get_tinkuy_coords_list_by_last_minutes(m=15):
     points = []
     i = 1
     for item in response['Items']:
-        print(item)
         try:
-            point = [float(item['latitud']['S']),float(item['longitud']['S'])]
-            print(point)
+            point = [float(item['latitud']),float(item['longitud'])]
             i += 1
             points.append(point)
         except:
