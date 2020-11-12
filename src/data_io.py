@@ -2,6 +2,12 @@ import boto3
 import pandas as pd
 import os
 import numpy as np
+import time
+import math
+
+from boto3.dynamodb.conditions import Attr
+
+REFRESH_INTERVAL = 900 #seconds
 
 def get_tinkuy_coords_df():
     dynamodb = boto3.client('dynamodb',\
@@ -31,12 +37,15 @@ def get_tinkuy_coords_np():
     return np.array(points)
 
 def get_tinkuy_coords_list_by_last_minutes(m=15):
-    dynamodb = boto3.client('dynamodb',\
+    dynamodb = boto3.resource('dynamodb',\
                       aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],\
                       aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],\
                       region_name = os.environ['AWS_DEFAULT_REGION'])
-    response = dynamodb.scan(TableName='tinkuy-coords')
-    print(response)
+    table = dynamodb.Table('tinkuy-coords')
+    ts = math.floor(time.time())
+    ts_minus15 = ts - REFRESH_INTERVAL
+    response = table.scan(Limit=1000, Select='ALL ATRIBUTES', FilterExpression=Attr('tstamp').gte(ts_minus15))
+    
     
     points = []
     i = 1
