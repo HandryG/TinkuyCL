@@ -18,7 +18,6 @@ def do_clustering(min_medoids,max_medoids):
   max_score = 0
   amount = 2
   print('POINTS:',points)
-  return True
   print('1')
   for n_clusters in range(min_medoids,max_medoids):
     clusterer = KMeans(n_clusters=n_clusters)
