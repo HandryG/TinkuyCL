@@ -1,7 +1,7 @@
 #from sklearn.cluster import OPTICS
 #import pandas as pd
 
-from data_io import get_tinkuy_coords_np, get_tinkuy_coords_list
+from data_io import get_tinkuy_coords_np, get_tinkuy_coords_list, get_tinkuy_coords_list_by_last_minutes
 from pyclustering.cluster import cluster_visualizer
 from pyclustering.cluster.center_initializer import kmeans_plusplus_initializer
 from pyclustering.cluster.kmedoids import kmedoids
@@ -13,7 +13,7 @@ import sys
 
 def do_clustering(min_medoids, max_medoids):
     # Read data
-    points = get_tinkuy_coords_list()
+    points = get_tinkuy_coords_list_by_last_minutes()
 
     # Get Optimal k
     max_score = 0
