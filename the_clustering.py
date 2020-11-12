@@ -13,15 +13,21 @@ import sys
 def do_clustering(min_medoids,max_medoids):
   # Read data
   points = get_tinkuy_coords_list()
-  
+  print('1')
   # Get Optimal k
   max_score = 0
   amount = 2
+  print('POINTS:',points)
+  print('1')
   for n_clusters in range(min_medoids,max_medoids):
     clusterer = KMeans(n_clusters=n_clusters)
+    print('x')
     preds = clusterer.fit_predict(points)
+    print('x')
     centers = clusterer.cluster_centers_
+    print('x')
     score = silhouette_score(points, preds)
+    print('x')
     if(score > max_score):
         max_score = score
         amount    = n_clusters
