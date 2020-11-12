@@ -43,8 +43,8 @@ def get_tinkuy_coords_list_by_last_minutes(m=15):
                       region_name = os.environ['AWS_DEFAULT_REGION'])
     table = dynamodb.Table('tinkuy-coords')
     ts = math.floor(time.time())
-    ts_minus15 = ts - REFRESH_INTERVAL
-    response = table.scan(Limit=1000, Select='ALL ATRIBUTES', FilterExpression=Attr('tstamp').gte(ts_minus15))
+    ts_minus15 = int(ts - REFRESH_INTERVAL)
+    response = table.scan(Select='ALL_ATTRIBUTES', FilterExpression=Attr('tstamp').gte(ts_minus15))
     
     
     points = []
