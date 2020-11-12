@@ -26,8 +26,8 @@ def do_clustering(min_medoids,max_medoids):
         max_score = score
         amount    = n_clusters
   
-  print('optimal k:',amount)
-  
+  print('Optimal k:',amount)
+    
   # Compute clusters for optimal k
   initial_centers = kmeans_plusplus_initializer(points, amount).initialize()
   kmeans_instance = kmedoids(points, range(0,amount)).process()
@@ -38,8 +38,10 @@ def do_clustering(min_medoids,max_medoids):
   #visualizer.show()
   
   # Retrieve medoid points
+  print('Medoids')
   medoid_points = []
   for medoid in medoids:
+      print('>',medioid)
       medoid_points.append(points[medoid])
   
   return medoid_points
