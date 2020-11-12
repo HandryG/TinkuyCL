@@ -40,10 +40,14 @@ def get_tinkuy_coords_list():
     points = []
     i = 1
     for item in response['Items']:
-        print(item)
-        point = [float(item['latitud']['S']),float(item['longitud']['S'])]
-        #print(point)
-        i += 1
-        points.append(point)
+        try:
+            point = [float(item['latitud']['S']),float(item['longitud']['S'])]
+            #print(point)
+            i += 1
+            points.append(point)
+        except:
+            print("Point:", item, "ignored")
+
+
         
     return points
