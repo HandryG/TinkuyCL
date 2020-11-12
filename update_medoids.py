@@ -4,13 +4,12 @@ import time
 from the_clustering import do_clustering
 
 medoid_list = {}
-medoid_list['list']=[]
 
 points = do_clustering(3,10)
 points_list = []
 for point in points:
   point_dict = {}
-  point_dict['NS'] = str(point)
+  point_dict['S'] = str(point)
   points_list.append(point_dict)
 
 medoid_list['tstamp'] = {'S':time.time() }
