@@ -44,6 +44,6 @@ def get_tinkuy_coords_list():
         point = [float(item['latitud']['S']),float(item['longitud']['S'])]
         print(point)
         i += 1
-        points.append(points)
+        points.append(point)
         
     return points
