@@ -27,12 +27,9 @@ dynamodb_cl = boto3.client('dynamodb',\
                       aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],\
                       aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],\
                       region_name = os.environ['AWS_DEFAULT_REGION'])             
-#try:
-  table = dynamodb_rs.Table('tinkuy-clusters')
-  response = table.delete_item(Key={'cluster_id': {'S':'activo'}})
-  dynamodb_cl.put_item(TableName='tinkuy-clusters',Item=medoid_list)
+
+table = dynamodb_rs.Table('tinkuy-clusters')
+response = table.delete_item(Key={'cluster_id': 'activo'})
+dynamodb_cl.put_item(TableName='tinkuy-clusters',Item=medoid_list)
   
-  print("Medoids updated in dynamo",response )
-#except:
-  #print("Medoid update failed")
- 
+print("Medoids updated in dynamo",response )
