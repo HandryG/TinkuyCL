@@ -1,3 +1,4 @@
+import boto3
 import random
 import os
 from shapely.geometry import Point
