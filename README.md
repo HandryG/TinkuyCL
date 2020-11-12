@@ -1,2 +1,2 @@
-# TinkuyBOT
-Un bot para organizar personas en espacios abiertos con propósitos educativos únicamente.
+# TinkuyCL
+Un app para clusterizar personas en espacios abiertos con propósitos educativos únicamente.
