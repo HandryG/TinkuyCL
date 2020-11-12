@@ -4,17 +4,15 @@ import random
 import os
 from shapely.geometry import Point
 
-def generate_random():
+def generate_random(minx,miny):
     _point = []
-    minx = -12.0494294
-    miny = -77.0366168
-    maxx = -12.0548508
-    maxy = -77.0304093
+    maxx = minx - 0.01
+    maxy = miny - 0.1
 
     pnt = Point(random.uniform(minx, maxx), random.uniform(miny, maxy))
     return pnt
 
-def load_locations(n, dynamodb=None):
+def load_locations(n, minx ,miny , dynamodb=None):
 
     if not dynamodb:
         dynamodb = boto3.resource('dynamodb',\
@@ -40,4 +38,6 @@ def load_locations(n, dynamodb=None):
 
 if __name__ == '__main__':
 
-    load_locations(500)
+    load_locations(150,-12.0494294,-77.0366168)
+    load_locations(150,-12.045,-77.040)
+    load_locations(150,-12.030,-77.030)
