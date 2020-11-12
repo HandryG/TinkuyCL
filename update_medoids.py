@@ -15,6 +15,8 @@ for point in points:
 
 medoid_list['tstamp'] = {'S':time.time() }
 medoid_list['points'] = {'L':points_list  }
+medoid_list['cluster-id'] = {'N':1}
+
 print(medoid_list)
 
 dynamodb = boto3.client('dynamodb',\
