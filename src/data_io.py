@@ -59,6 +59,7 @@ def get_tinkuy_cluster_list():
                       region_name = os.environ['AWS_DEFAULT_REGION'])
     response = dynamodb.scan(TableName='tinkuy-clusters')
     
+    print(response)
     str_points = [obj['SS'] for obj in response['Items']['points']['L']]
     float_cluster = [list(map(float,o)) for o in str_points]
     return float_cluster
