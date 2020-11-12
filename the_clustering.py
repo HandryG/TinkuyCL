@@ -11,7 +11,7 @@ import sys
 def do_clustering(min_medoids,max_medoids):
   points = get_tinkuy_coords_list()
   sys.setrecursionlimit(6500)
-  search_instance = silhouette_ksearch(points, 2, 10, algorithm=silhouette_ksearch_type.KMEDOIDS).__process_by_ccore()
+  search_instance = silhouette_ksearch(points, 2, 10, algorithm=silhouette_ksearch_type.KMEDOIDS,ccore=True).process()
   amount = search_instance.get_amount()
   scores = search_instance.get_scores()
   initial_centers = kmeans_plusplus_initializer(points, amount).initialize()
