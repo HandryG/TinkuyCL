@@ -6,9 +6,15 @@ from the_clustering import do_clustering
 medoid_list = {}
 medoid_list['list']=[]
 
-point_list = do_clustering(3,10)
-medoid_list['tstamp'] = {'N':time.time() }
-medoid_list['points'] = {'M':point_list  }
+points = do_clustering(3,10)
+points_list = []
+for point in points:
+  point_dict = {}
+  point_dict['N'] = point
+  points_list.append(point_dict)
+
+medoid_list['tstamp'] = {'S':time.time() }
+medoid_list['points'] = {'L':points_list  }
 print(medoid_list)
 
 dynamodb = boto3.client('dynamodb',\
