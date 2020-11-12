@@ -7,9 +7,8 @@ medoid_list = {}
 medoid_list['list']=[]
 
 point_list = do_clustering(3,10)
-medoid_list['tstamp'] = time.time() 
-medoid_list['points'] = point_list
-medoid_list['id'] = 1
+medoid_list['tstamp'] = {'N':time.time() }
+medoid_list['points'] = {'M':point_list  }
 print(medoid_list)
 
 dynamodb = boto3.client('dynamodb',\
