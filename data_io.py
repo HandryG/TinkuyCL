@@ -47,7 +47,7 @@ def get_tinkuy_coords_list():
             points.append(point)
         except:
             print("Point:", item, "ignored")
-
-
+    i -= 1
+    print("Number of retrieved points:",i)
         
     return points
