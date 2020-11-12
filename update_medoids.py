@@ -14,7 +14,7 @@ for point in points:
 
 medoid_list['tstamp'] = {'S':str(time.time()) }
 medoid_list['points'] = {'L':points_list }
-medoid_list['cluster-id'] = {'S':'1'}
+medoid_list['cluster-id'] = {'S':'0'}
 
 print(medoid_list)
 
