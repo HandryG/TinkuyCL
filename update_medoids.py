@@ -29,7 +29,7 @@ try:
   table = dynamodb.Table('tinkuy-clusters')
   response = table.update_item(
         Key={
-            'cluster_id': '0'
+            'cluster_id': medoid_list['cluster_id']
         },
         UpdateExpression="set tstamp=:s, points=:p",
         ExpressionAttributeValues={
