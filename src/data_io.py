@@ -51,3 +51,14 @@ def get_tinkuy_coords_list():
     print("Number of retrieved points:",i)
         
     return points
+
+def get_tinkuy_cluster_list():
+    dynamodb = boto3.client('dynamodb',\
+                      aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],\
+                      aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],\
+                      region_name = os.environ['AWS_DEFAULT_REGION'])
+    response = dynamodb.scan(TableName='tinkuy-clusters')
+    
+    str_points = [obj['SS'] for obj in response['points']['L']]
+    float_cluster = [list(map(float,o)) for o in str_points]
+    return float_cluster
