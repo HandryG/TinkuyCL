@@ -5,4 +5,5 @@ def do_clustering():
   df = get_tinkuy_coords_df
   df = df["latitud","longitud"]
   clust  = OPTICS(min_samples=15).fit_predict(df)
+  return clust
 
