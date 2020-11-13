@@ -22,7 +22,7 @@ def load_locations(n, minx, miny, dynamodb=None):
                       
         #dynamodb = boto3.resource('dynamodb', endpoint_url="http://localhost:8000")
 
-    table = dynamodb.Table('tinkuy-coords')
+    table = dynamodb.Table('tinkuy-coords-qas')
 
     for i in range(n):
         _point = generate_random(minx, miny)
@@ -37,7 +37,9 @@ def load_locations(n, minx, miny, dynamodb=None):
 
 
 if __name__ == '__main__':
-
-    load_locations(150,-12.0494294,-77.0366168)
-    load_locations(150,-12.045,-77.040)
-    load_locations(150,-12.030,-77.030)
+    
+    load_locations(150,-12.131819,-77.030297)#Larcomar
+    load_locations(150,-12.046452,-77.042785)#Plaza 2 de Mayo
+    load_locations(150,-12.051806,-77.034629)#Plaza San Martin
+    load_locations(150,-12.054520,-77.030175)#Av. Abancay
+    load_locations(150,-12.048730,-77.039021)#Av. Tacna
