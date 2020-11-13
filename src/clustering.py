@@ -11,9 +11,9 @@ from sklearn.metrics import silhouette_score
 import sys
 
 
-def do_clustering(min_medoids, max_medoids):
+def do_clustering(min_medoids, max_medoids,minutes):
     # Read data
-    points = get_tinkuy_coords_list_by_last_minutes()
+    points = get_tinkuy_coords_list_by_last_minutes(minutes)
 
     # Get Optimal k
     max_score = 0

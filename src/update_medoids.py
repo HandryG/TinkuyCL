@@ -3,10 +3,10 @@ import os
 import time
 from clustering import do_clustering
 
-def update_medoids():
+def update_medoids(minutes):
     medoid_list = {}
 
-    points = do_clustering(3, 10)
+    points = do_clustering(3, 10,minutes)
     points_list = []
     for point in points:
         point_dict = {}
@@ -29,8 +29,8 @@ def update_medoids():
                                aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
                                region_name=os.environ['AWS_DEFAULT_REGION'])
 
-    table = dynamodb_rs.Table('tinkuy-clusters')
+    table = dynamodb_rs.Table('tinkuy-clusters-qas')
     response = table.delete_item(Key={'cluster_id': 'activo'})
-    dynamodb_cl.put_item(TableName='tinkuy-clusters', Item=medoid_list)
+    dynamodb_cl.put_item(TableName='tinkuy-clusters-qas', Item=medoid_list)
 
     print("Medoids updated in dynamo", response)

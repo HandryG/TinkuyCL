@@ -36,14 +36,14 @@ def get_tinkuy_coords_np():
         
     return np.array(points)
 
-def get_tinkuy_coords_list_by_last_minutes(m=15):
+def get_tinkuy_coords_list_by_last_minutes(minutes=15):
     dynamodb = boto3.resource('dynamodb',\
                       aws_access_key_id = os.environ['AWS_ACCESS_KEY_ID'],\
                       aws_secret_access_key = os.environ['AWS_SECRET_ACCESS_KEY'],\
                       region_name = os.environ['AWS_DEFAULT_REGION'])
-    table = dynamodb.Table('tinkuy-coords')
+    table = dynamodb.Table('tinkuy-coords-qas')
     ts = math.floor(time.time())
-    ts_minus15 = int(ts - REFRESH_INTERVAL)
+    ts_minus15 = int(ts - minutes*60)
     response = table.scan(Select='ALL_ATTRIBUTES', FilterExpression=Attr('tstamp').gte(ts_minus15))
     
     points = []
