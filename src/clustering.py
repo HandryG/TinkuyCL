@@ -10,16 +10,29 @@ from pyclustering.cluster.silhouette import silhouette_ksearch_type, silhouette_
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 import sys
+import numpy as np
 
+def do_clustering(minutes):
+    # Read data
+    points = np.array(get_tinkuy_coords_list_by_last_minutes(minutes))
 
-def do_clustering(min_medoids, max_medoids,minutes):
+    #get labels
+    labels = eliminate_outliers(points)
+
+    n_clusters = max(labels) + 1
+    medoid_points = []
+    for i in range(n_clusters):
+      center = np.median(points[labels == i], 0)
+      medoid_points.append(center)
+
+    return [list(i) for i in medoid_points]
+
+def do_clustering_old(min_medoids, max_medoids,minutes):
     # Read data
     points = get_tinkuy_coords_list_by_last_minutes(minutes)
-    print(len(points))
 
     #Filter outliers
     points = eliminate_outliers(points)
-    print(len(points))
 
     # Get Optimal k
     max_score = 0

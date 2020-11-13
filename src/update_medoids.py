@@ -6,7 +6,7 @@ from clustering import do_clustering
 def update_medoids(minutes):
     medoid_list = {}
 
-    points = do_clustering(3, 10,minutes)
+    points = do_clustering(minutes)
     points_list = []
     for point in points:
         point_dict = {}
