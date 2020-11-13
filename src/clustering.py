@@ -2,6 +2,7 @@
 #import pandas as pd
 
 from data_io import get_tinkuy_coords_np, get_tinkuy_coords_list, get_tinkuy_coords_list_by_last_minutes
+from outlier_detection import eliminate_outliers
 from pyclustering.cluster import cluster_visualizer
 from pyclustering.cluster.center_initializer import kmeans_plusplus_initializer
 from pyclustering.cluster.kmedoids import kmedoids
@@ -14,6 +15,11 @@ import sys
 def do_clustering(min_medoids, max_medoids,minutes):
     # Read data
     points = get_tinkuy_coords_list_by_last_minutes(minutes)
+    print(len(points))
+
+    #Filter outliers
+    points = eliminate_outliers(points)
+    print(len(points))
 
     # Get Optimal k
     max_score = 0
