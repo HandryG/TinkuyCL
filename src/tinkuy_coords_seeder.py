@@ -38,9 +38,13 @@ def load_locations(ini,fin, minx, miny, dynamodb=None):
 
 
 if __name__ == '__main__':
-    
     load_locations(  1,150,-12.131819,-77.030297)#Larcomar
-    load_locations(151,300,-12.046452,-77.042785)#Plaza 2 de Mayo
-    load_locations(301,450,-12.051806,-77.034629)#Plaza San Martin
-    load_locations(451,600,-12.054520,-77.030175)#Av. Abancay
-    load_locations(601,750,-12.048730,-77.039021)#Av. Tacna
+    load_locations(10,30,-12.046452,-77.042785)#Plaza 2 de Mayo
+    load_locations(10,60,-12.051806,-77.034629)#Plaza San Martin
+    load_locations(10,50,-12.054520,-77.030175)#Av. Abancay
+    load_locations(10,75,-12.048730,-77.039021)#Av. Tacna
+    load_locations(25,75,-12.077013,-77.082974)#Plaza San Miguel
+    load_locations(1,30,-12.054629,-77.030219)#Nicolas de Pierola tramo 1
+    load_locations(1,30,-12.053787,-77.031476)#Nicolas de Pierola tramo 2
+    load_locations(1,30,-12.052704,-77.033051)#Nicolas de Pierola tramo 3
+    load_locations(1,30,-12.052077,-77.034069)#Nicolas de Pierola tramo 4
